@@ -1,0 +1,25 @@
+---
+import { ThemeToggle } from '../theme/toggle';
+---
+
+<header class="w-full h-16 border-b flex items-center justify-between px-4 bg-secondary">
+    <div class="w-full max-w-[1600px] mx-auto flex items-center justify-between">
+        <nav class="flex items-center gap-2">
+        <a href="/" class="flex items-center gap-2">
+            <img src="/logo.webp" alt="Logo" class="size-10" />
+            <nav>
+            <p class="text-lg font-bold tracking-wide">S3 Explorer</p>
+            <p class="text-xs text-muted-foreground font-medium">
+                Simplified AWS S3 Management
+            </p>
+            </nav>
+        </a>
+        </nav>
+        <nav>
+
+        </nav>
+        <nav>
+            <ThemeToggle client:load />
+        </nav>
+    </div>
+</header>
