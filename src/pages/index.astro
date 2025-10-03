@@ -1,8 +1,22 @@
 ---
-import Layout from '../layouts/base.astro'
-import '../styles/global.css'
+import Layout from "../layouts/base.astro";
+import "../styles/global.css";
+import { Meteors } from "@/components/ui/meteors";
+import { Particles } from "@/components/ui/particles";
 ---
 
 <Layout title="S3 Explorer - Página inicial">
-	oi
+	<div class="fixed inset-0 pointer-events-none">
+		<Particles client:load />
+	</div>
+	<main class="flex-1 flex items-center justify-center p-4">
+		<div class="text-center">
+			<Meteors number={30} client:load />
+			<h1 class="text-4xl font-bold">Welcome to S3 Explorer</h1>
+			<p class="text-lg text-muted-foreground">Simplified AWS S3 Management at your fingertips.</p>
+			<a href="/dashboard">
+				<button class="px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition"> Go to Dashboard </button>
+			</a>
+		</div>
+	</main>
 </Layout>
