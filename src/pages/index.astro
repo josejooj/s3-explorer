@@ -1,21 +1,55 @@
 ---
 import Layout from "../layouts/base.astro";
 import "../styles/global.css";
-import { Meteors } from "@/components/ui/meteors";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { TypingAnimation } from "@/components/ui/typing-animation";
+import { SparklesText } from "@/components/ui/sparkles-text";
+import { AuroraText } from "@/components/ui/aurora-text";
 import { Particles } from "@/components/ui/particles";
+
+import { LucideRocket } from "lucide-react";
 ---
 
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
+
 <Layout title="S3 Explorer - Página inicial">
-	<div class="fixed inset-0 pointer-events-none">
-		<Particles client:load />
+	<div class="fixed inset-0 pointer-events-none h-screen w-screen -z-10">
+		<Particles client:load quantity={200} staticity={100} ease={100} refresh />
 	</div>
 	<main class="flex-1 flex items-center justify-center p-4">
-		<div class="text-center">
-			<Meteors number={30} client:load />
-			<h1 class="text-4xl font-bold">Welcome to S3 Explorer</h1>
-			<p class="text-lg text-muted-foreground">Simplified AWS S3 Management at your fingertips.</p>
+		<div class="flex flex-col items-center">
+			<h1 class="text-4xl font-bold tracking-tighter md:text-5xl lg:text-7xl" style="font-family: Geist;">
+				<SparklesText client:load>The ultimate <AuroraText>S3 Explorer</AuroraText></SparklesText>
+			</h1>
+			<nav>
+				<TypingAnimation
+					className="text-muted-foreground font-medium"
+					words={[
+						"Simplified AWS S3 Management 🚧",
+						"All your favorite S3 explorers, now in one place. 📦",
+						"Work with AWS S3, Cloudflare R2, and many more. ✨",
+						"Completely free and open source. 🎉",
+						"Built with Astro, React, and Tailwind CSS. 🚀",
+						"Your data, your control. 🔒",
+						"Privacy-focused and secure, all runs in your machine. 🔐",
+						"No account needed, get started in seconds. ⏱️",
+						"Light and dark mode support. 🌗",
+						"Optimized for performance and speed. ⚡",
+					]}
+					loop
+					typeSpeed={50}
+					deleteSpeed={25}
+					pauseDelay={1000}
+					client:load
+				/>
+			</nav>
 			<a href="/dashboard">
-				<button class="px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition"> Go to Dashboard </button>
+				<HoverBorderGradient client:load className="flex items-center gap-2 font-medium py-4 cursor-pointer">
+					<LucideRocket />
+					Get started in seconds!
+				</HoverBorderGradient>
 			</a>
 		</div>
 	</main>
